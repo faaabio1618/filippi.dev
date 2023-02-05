@@ -1,6 +1,13 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-layout: home
+layout: page
+title: Hey,
+navigable: true
 ---
+
+
+I'm Fabio. I develop stuff, like:
+
+A Shopify app: [Product Quality](/apps/ProductQuality)
+
+A milestone of the modern web, as we know it today: [www.calcoloenigmatico.it](https://www.calcoloenigmatico.it){:target="_blank"}
