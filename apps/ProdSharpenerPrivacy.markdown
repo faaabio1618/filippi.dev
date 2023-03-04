@@ -1,6 +1,6 @@
 ---
 layout: page
-title: ProdEval - Privacy Policy
+title: ProdSharpener - Privacy Policy
 ---
 
 We understand that your privacy is important. Our Shopify app does not collect or store any personal data from you or your customers. We do not require any personal information to use our app. We do not share any data with third-party providers or services.
