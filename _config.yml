@@ -22,13 +22,9 @@
 title: filippi.dev
 email: developers@filippi.dev
 description: >- # this means to ignore newlines until "baseurl:"
-  Born in Italy, raised by the sounds of Mario jumping on Koopas, I now call France my home.
+
 baseurl: "/"
 url: "https://filippi.dev" # the base hostname & protocol for your site, e.g. http://example.com
-
-author:
-  name: Want to send a postcard?
-  email: fabio@filippi.dev
 
 # Build settings
 remote_theme: jekyll/minima
@@ -36,6 +32,7 @@ plugins: [ ]
 minima:
   skin: dark
   social_links:
+    - { platform: email,  user_url: "mailto:fabio@filippi.dev" }
     - { platform: twitter,  user_url: "https://twitter.com/0xFAB10" }
     - { platform: linkedin, user_url: "https://linkedin.com/in/0xFAB10" }
     - { platform: lichess, user_url: "https://lichess.org/@/jumblejumble" }

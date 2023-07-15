@@ -15,4 +15,6 @@ I have 10 years experience, and I've worked with many different technologies, bu
 on Shopify stores and apps.
 
 
-_More Coming Soon..._
+## Reports
+
+* _More Coming Soon..._
