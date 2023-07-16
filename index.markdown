@@ -17,4 +17,6 @@ on Shopify stores and apps.
 
 ## Reports
 
+* [Analysis of Liquid Tags Performances](/reports/liquid_tags_performances)
+
 * _More Coming Soon..._
