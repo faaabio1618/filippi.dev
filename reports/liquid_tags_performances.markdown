@@ -87,7 +87,8 @@ method. The following graph shows the results for `process_time`:
 
 ![Process Time Validation](/reports/liquid_tags_performances/process_time_validation.png)
 
-It is evident that the tests are working, and the results are consistent with our expectations.
+It is evident that the tests are working, and the results are consistent with our expectations (we actually made other
+validations to conclude that, check the full report if interested).
 
 ## Test Results
 
@@ -125,8 +126,8 @@ is slower than this
 
 ### How much slower?
 
-The resulting page is slower by 50% in total time, but if we just consider `process_time` (which is a good approximation
-for how long it takes the server to generate the page) the capture code is faster by a 70% margin.
+The resulting page is slower by 50% in `total` time and 70% in `process_time`. The absolute difference is about
+`0.13` seconds, which is not negligible for a server response.
 
 ### So I should stop using assign?
 
