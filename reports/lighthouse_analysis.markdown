@@ -197,12 +197,15 @@ resize: true
 | CLS Score         | 19.94±9.87  | 100.00±0.00 |
 | Performance Score | 59.48±10.49 | 84.82±3.60  |
 
-Snippet 2 is the clear winner.
+Snippet 2 is the clear winner! 
 
 `First Content Paint` and `Speed Index` were almost always perfect because they depend on the server speed, and both pages were served by Shopify, which has proved to be fast.
+
 `Total Blocking Time` is comparable, but even in that case, Snippet 2 is ahead.
+
 `Cumulative Layout Shift` is very different. Snippet 2 is perfect, while Snippet 1 is struggling.
-The difference in `Largest Contentful Paint` makes us emphasize that even a significant variance is a bad signal. This is because users may have a different experience on the same page, or the page can behave very differently under certain circumstances.
+
+The difference in `Largest Contentful Paint` makes us emphasize that even **a significant variance is a bad signal**. This is because users may have a different experience on the same page, or the page can behave very differently under certain circumstances.
 
 
 <hr style="border:2px solid gray; margin: 50px 0 50px 0">
