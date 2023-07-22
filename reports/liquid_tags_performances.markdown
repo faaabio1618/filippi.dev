@@ -1,9 +1,9 @@
 ---
 layout: page
-title: "Analysis of Liquid Tags Performances"
+title: "Liquid Tags Performances"
 ---
 
-#### This is a summary of the full report that can be found [here](https://datalore.jetbrains.com/view/report/v9uEpyL6zMfr6Atx8E8AoX).
+####  This is a short version to accommodate your limited attention span. <br/> Full version [here](https://datalore.jetbrains.com/view/report/v9uEpyL6zMfr6Atx8E8AoX).
 
 <div style="text-align:right;margin-bottom: 50px;">The Internet, 2023/07/06</div>
 
