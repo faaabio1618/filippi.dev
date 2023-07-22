@@ -24,11 +24,9 @@ metrics:
    how long it takes the browser to render the first piece of DOM content.
 2. 10% [Speed Index](https://developer.chrome.com/docs/lighthouse/performance/speed-index/): how quickly content is
    visually displayed during page-load.
-3. **30%
-   ** [Total Blocking Time (TBT)](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/):
+3. **30%** [Total Blocking Time (TBT)](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/):
    the total amount of time that a page is blocked from responding to user input.
-4. **25%
-   ** [Largest Contentful Paint (LCP)](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/):
+4. **25%** [Largest Contentful Paint (LCP)](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/):
    when the largest content element in the viewport is rendered to the screen.
 5. **25%** [Cumulative Layout Shift (CLS)](https://web.dev/cls/): the largest burst of layout shift scores for every
    unexpected layout shift that occurs during the entire lifespan of a page.
