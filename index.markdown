@@ -18,5 +18,5 @@ on Shopify stores and apps.
 ## Reports
 
 * [Liquid Tags Performances](/reports/liquid_tags_performances)
-* [Lighthouse scores for Shopify Websites](/reports/lighthouse_analysis) 
+* [Lighthouse scores for Shopify Websites](/reports/lighthouse_analysis) (WIP)
 * _More Coming Soon..._
