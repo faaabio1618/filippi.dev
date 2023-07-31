@@ -205,8 +205,3 @@ Snippet 2 is the clear winner!
 
 The difference in `Largest Contentful Paint` makes us emphasize that even **a significant variance is a bad signal**. This is because users may have a different experience on the same page, or the page can behave very differently under certain circumstances.
 
-
-<hr style="border:2px solid gray; margin: 50px 0 50px 0">
-
-# Comparing best e-commerces
-...to be continued
