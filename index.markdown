@@ -18,5 +18,4 @@ on Shopify stores and apps.
 
 * [Liquid Tags Performances](/reports/liquid_tags_performances)
 * [101 Shopifys](/reports/101_shopifys)
-* [In pursuit of the perfect picture](/reports/lighthouse_analysis) (WIP)
 * _More Coming Soon..._
