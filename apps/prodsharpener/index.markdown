@@ -10,7 +10,7 @@ to introduce to you ProdSharpener - the Shopify app that will revolutionize the 
 
 &nbsp;
 
-![See products quality at a glance!](/apps/prodSharpener.png "Screenshot")
+![See products quality at a glance!](/apps/prodsharpener/prodSharpener.png "Screenshot")
 
 
 &nbsp;
@@ -22,7 +22,7 @@ this lead to a better shopping experience for your customers, but it will also i
 
 &nbsp;
 
-![Customize your score!](/apps/prodSharpener2.png "Screenshot")
+![Customize your score!](/apps/prodsharpener/prodSharpener2.png "Screenshot")
 
 
 &nbsp;
@@ -33,7 +33,7 @@ discoverable by potential customers, helping you reach more people and increase 
 
 &nbsp;
 
-![Understand what you need to change](/apps/prodSharpener3.png "Screenshot")
+![Understand what you need to change](/apps/prodsharpener/prodSharpener3.png "Screenshot")
 
 
 &nbsp;
