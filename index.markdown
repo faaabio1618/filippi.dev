@@ -19,3 +19,8 @@ on Shopify stores and apps.
 * [Liquid Tags Performances](/reports/liquid_tags_performances)
 * [101 Shopifys](/reports/101_shopifys)
 * _More Coming Soon..._
+
+## Tutorials
+
+* [It looks like you're trying to build a Checkout UI Extension](/tutorials/clippify)
+* _More Coming Soon..._
