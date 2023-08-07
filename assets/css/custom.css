@@ -1,4 +1,9 @@
-.language-shell code .nv{
+.language-shell code .nv {
     user-select: none;
 }
 
+img[src*='#centered'] {
+
+    display: block;
+    margin: 50px auto;
+}

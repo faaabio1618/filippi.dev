@@ -2,7 +2,7 @@
 
 layout: page
 title: Hey,
-navigable: true
+navigable: false
 ---
 
 
