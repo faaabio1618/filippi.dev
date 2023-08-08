@@ -401,7 +401,7 @@ Pretty, pretty, pretty good, not bad!
 
 # Conclusion
 
-It was really nice to work on Checkout UI, it's fun. The UI limitations are a real struggle and when the checkout
+It was really nice to work on Checkout UI, it's fun. The UI limitations are a real struggle, and when the checkout
 customization
 will come to an end will be fun to see how shops will *React*.
 
