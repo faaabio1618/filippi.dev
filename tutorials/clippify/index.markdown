@@ -399,6 +399,8 @@ Pretty, pretty, pretty good, not bad!
 It was really nice to work on Checkout UI, it's fun. The UI limitations are a real struggle and when the checkout customization
 will come to an end will be fun to see how shops will *React*.
 
+This is the repository if you want the full code: [github.com/faaabio1618/clippify](github.com/faaabio1618/clippify)
+
 
 <sub><sup>Clippy is a registered trademark of Microsoft Corporation in the United States and/or other countries. The use
 of the Clippy image is for parody purposes only and is not endorsed by Microsoft. I'm not affiliated with Microsoft (buy
