@@ -30,6 +30,7 @@ dont_escape_title: true
     * [Deploy](#deploy)
     * [The Result](#the-result)
 - [Conclusion](#conclusion)
+    * [The Code](#the-code)
 
 # Introduction
 
@@ -168,7 +169,7 @@ function Extension() {
     return (
         <Grid columns={['30%', 'fill']} spacing={'none'}>
             <View>
-                <Image source="https://filippi.dev/tutorials/clippify/tiger.gif"/> 
+                <Image source="https://filippi.dev/tutorials/clippify/tiger.gif"/>
             </View>
             <View>
                 <TextBlock>
@@ -300,7 +301,8 @@ useMemo(() => {
 ## Completing the UI
 
 At this stage, you might assume we're almost there, just a bit of CSS, and we're finished! However, that's not entirely
-accurate. The React API (based on [remote-ui](https://github.com/Shopify/remote-ui)) of the checkout UI only permits us to build functional components on top of the existing ones.
+accurate. The React API (based on [remote-ui](https://github.com/Shopify/remote-ui)) of the checkout UI only permits us
+to build functional components on top of the existing ones.
 Unfortunately, CSS isn't supported. We're limited to using the predefined parameters of the components, which hampers
 our ability to create the exact interface we desire.
 
@@ -309,9 +311,10 @@ Maybe this will change in the future, maybe not.
 ## Image Generation Process
 
 To solve that problem we will generate an image, on the server, with the message! This image will
-then be returned as a base64-encoded string. 
+then be returned as a base64-encoded string.
 
-If the concept of displaying text within an image doesn't evoke a sense of nostalgia from the 2000s, I'm not sure what will.
+If the concept of displaying text within an image doesn't evoke a sense of nostalgia from the 2000s, I'm not sure what
+will.
 
 To achieve this, we will utilize [CanvasJS](https://canvasjs.com/) for image generation. The code responsible for
 creating the image is quite extensive, and you can review it in the repository. However, it's not a critical aspect of
@@ -379,8 +382,10 @@ The app is now on heroku. We can add the block in our checkout and test it.
 
 ## Positioning the block
 
-I struggled **a lot** to make the app appear in the block list under the checkout customization. The simplified deployment
-introduced a "Development Store Preview" that needs to be **OFF** when installing the app to make it visible in the checkout block list.
+I struggled **a lot** to make the app appear in the block list under the checkout customization. The simplified
+deployment
+introduced a "Development Store Preview" that needs to be **OFF** when installing the app to make it visible in the
+checkout block list.
 To understand that took about 20% of the time spent on this project. But now our puppy is in the right spot...
 
 ![block](/tutorials/clippify/block.png#centered)
@@ -396,11 +401,13 @@ Pretty, pretty, pretty good, not bad!
 
 # Conclusion
 
-It was really nice to work on Checkout UI, it's fun. The UI limitations are a real struggle and when the checkout customization
+It was really nice to work on Checkout UI, it's fun. The UI limitations are a real struggle and when the checkout
+customization
 will come to an end will be fun to see how shops will *React*.
 
-This is the repository if you want the full code: [github.com/faaabio1618/clippify](github.com/faaabio1618/clippify)
+## The Code
 
+This is the repository if you want the full code: [github.com/faaabio1618/clippify](github.com/faaabio1618/clippify)
 
 <sub><sup>Clippy is a registered trademark of Microsoft Corporation in the United States and/or other countries. The use
 of the Clippy image is for parody purposes only and is not endorsed by Microsoft. I'm not affiliated with Microsoft (buy
