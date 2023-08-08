@@ -401,13 +401,14 @@ Pretty, pretty, pretty good, not bad!
 
 # Conclusion
 
-It was really nice to work on Checkout UI, it's fun. The UI limitations are a real struggle, and when the checkout
-customization
-will come to an end will be fun to see how shops will *React*.
+It was really nice to work on Checkout UI, it's fun. The UI limitations are a real struggle, and when
+the `checkout.liquid`
+customization will come to an end it will be fun to see how shops will *React*.
 
 ## The Code
 
-This is the repository if you want the full code: [https://github.com/faaabio1618/clippify](https://github.com/faaabio1618/clippify)
+This is the repository if you want the full
+code: [https://github.com/faaabio1618/clippify](https://github.com/faaabio1618/clippify)
 
 <sub><sup>Clippy is a registered trademark of Microsoft Corporation in the United States and/or other countries. The use
 of the Clippy image is for parody purposes only and is not endorsed by Microsoft. I'm not affiliated with Microsoft (buy
