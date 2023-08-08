@@ -5,11 +5,10 @@ image: "/tutorials/clippify/clippy.png"
 dont_escape_title: true
 ---
 
-<div style="text-align:right;margin-bottom: 50px;">The Internet, 2023/08/04</div>
+<div style="text-align:right;margin-bottom: 50px;">The Internet, 2023/08/06</div>
 
 - [Introduction](#introduction)
     * [The Goal](#the-goal)
-    * [The Approach](#the-approach)
     * [Getting Started](#getting-started)
 - [Building the App](#building-the-app)
     * [Fixing typing issue and eslint](#fixing-typing-issue-and-eslint)
@@ -44,14 +43,6 @@ appear, offering assistance while you tried to write a document.
 
 ## The Goal
 
-Numerous upsell and cross-sell apps empower merchants to enhance their average order value. However, what if our
-objective was to persuade customers to simply complete the purchase of items already in their cart? What if Clippy™
-could
-make a comeback and convince our customers that the papaya shirt in their cart is indeed the best choice they could
-make?
-
-## The Approach
-
 ![Goal Plot](/tutorials/clippify/goal-plot.svg)
 
 Our approach involves creating a Checkout UI extension that establishes a connection with the app's API. This API will
@@ -80,7 +71,7 @@ use `Typescript React`.
 ## Fixing typing issue and eslint
 
 Maybe it's just me, but out of the box I had an error with the React components. I had to add the following
-to __`extension/clippify-checkout-ui/package.json`__:
+to `extension/clippify-checkout-ui/package.json`:
 
 ```json
 {
@@ -167,17 +158,17 @@ Who could resist a puppy tiger? Take a look: ![Tiger](/tutorials/clippify/tiger.
 
 ## Modifying `Checkout.tsx`
 
-As a first step, we will simply add a straightforward message and an accompanying image. To achieve
-this, we'll also retrieve the cart lines with the `useCartLines` hook:
+As a first step, we will simply add a straightforward message and our mascot. While we're there, we'll also retrieve the
+cart lines with the `useCartLines` hook (we will need them later):
 
 ```tsx
 function Extension() {
     const cartLines = useCartLines()
-    // later we will use a metaobject to retrieve the picture asset.
+    // later we will use a metaobject to retrieve the picture asset. (Couldn't find a way to make the local path work)
     return (
         <Grid columns={['30%', 'fill']} spacing={'none'}>
             <View>
-                <Image source="https://filippi.dev/tutorials/clippify/tiger.gif"/>
+                <Image source="https://filippi.dev/tutorials/clippify/tiger.gif"/> 
             </View>
             <View>
                 <TextBlock>
@@ -202,9 +193,8 @@ extension.
 
 ![First Result](/tutorials/clippify/screen1.png)
 
-While the concept is in place, the positioning requires adjustment, a task we'll tackle once the app is deployed and we
-have access to checkout customization. The message display may not be optimal for now, but we'll address that in due
-course. Our focus can now shift to creating the right message.
+Not bad for a first result, the position needs to be fixed, the message display is not great but we'll get there.
+Our focus can now shift to creating the right message.
 
 ## The API
 
@@ -231,7 +221,7 @@ const response = await openai.createChatCompletion({
     messages: [
         {
             "role": "user",
-            "content": "You are a shop assistant that is helping a customer. Their name is\nFabio. You want them to be happy about their purchase.\\\\n  They have purchased White shirt and Yellow Tie. And you should explain how good they go together.. Say\nthat in a brief way.\n"
+            "content": "You are a shop assistant that is helping a customer. Their name is\nFabio. You want them to be happy about their purchase.\\\\n  They have purchased White shirt and Yellow Tie. And you should explain how good they go together. Say\nthat in a brief way.\n"
         }
     ],
     temperature: 1,
@@ -246,7 +236,7 @@ We will replace the parameters in our code and that's it.
 
 ## Remix
 
-We will create a new file `app/routes/ai.jsx` which will define a straightforward `GET` endpoint, returning a message.
+We create a new file `app/routes/ai.jsx` which define a straightforward `GET` endpoint, returning a message.
 For the purpose of this tutorial (and to save time), we will not implement a request handler for the entire cart and
 customer. Instead, we will focus on the specific parameters we need for the current task.
 
@@ -289,7 +279,7 @@ checkout UI has a few limitations concerning network access. In summary:
 3. App Proxy cannot be utilized for password-protected stores.
 
 In a real production app, I would utilize the App Proxy. Unfortunately, it's unavailable in a development store, forcing
-me to hardcode the URL (environment variables aren't available neither). The less of authentication is not a real
+me to hardcode the URL (environment variables aren't available neither). The lack of authentication is not a real
 problem, since we aren't handling sensitive information.
 
 ```jsx
@@ -310,7 +300,7 @@ useMemo(() => {
 ## Completing the UI
 
 At this stage, you might assume we're almost there, just a bit of CSS, and we're finished! However, that's not entirely
-accurate. The React API of the checkout UI only permits us to build functional components on top of the existing ones.
+accurate. The React API (based on [remote-ui](https://github.com/Shopify/remote-ui)) of the checkout UI only permits us to build functional components on top of the existing ones.
 Unfortunately, CSS isn't supported. We're limited to using the predefined parameters of the components, which hampers
 our ability to create the exact interface we desire.
 
@@ -318,9 +308,10 @@ Maybe this will change in the future, maybe not.
 
 ## Image Generation Process
 
-Rather than simply generating a text message, our approach involves producing an image on the server. This image will
-then be returned as a base64-encoded string. Subsequently, this string will serve as the image source. If the concept of
-displaying text within an image doesn't evoke a sense of nostalgia from the 2000s, I'm not sure what will.
+To solve that problem we will generate an image, on the server, with the message! This image will
+then be returned as a base64-encoded string. 
+
+If the concept of displaying text within an image doesn't evoke a sense of nostalgia from the 2000s, I'm not sure what will.
 
 To achieve this, we will utilize [CanvasJS](https://canvasjs.com/) for image generation. The code responsible for
 creating the image is quite extensive, and you can review it in the repository. However, it's not a critical aspect of
@@ -360,6 +351,7 @@ $ heroku container:login
 $ heroku create -a clippify -s container
 $ yarn shopify app env show
 ```
+
 We create a `heroku.yml` file with the following content:
 
 ```yaml
@@ -370,9 +362,12 @@ build:
     SHOPIFY_API_KEY: 6.......................c
 ```
 
-Because we are using `canvas` that uses `glibc` we can't use `alpine` (unless we install the `glibc` package). So we are
-modifying `Dockerfile` replacing `node:18-alpine` with `node:18-bullseye-slim` and adding `RUN apt-get update && apt-get install -y -q libfontconfig1` to install the fonts:
+Because we are using `canvasjs` that uses `glibc` we can't use `alpine` (unless we install the `glibc` package). So we
+are
+modifying `Dockerfile` replacing `node:18-alpine` with `node:18-bullseye-slim` and
+adding `RUN apt-get update && apt-get install -y -q libfontconfig1` to install the fonts.
 
+We need to update the heroku environment variables with the ones from the shopify app and our open api key.
 
 ```bash
 $ heroku config:set -a clippify SCOPES=write_products SHOPIFY_APP_URL=<SHOPIFY_APP_URL> SHOPIFY_API_KEY=<SHOPIFY_API_KEY> SHOPIFY_API_SECRET=<SHOPIFY_API_SECRET>
@@ -380,10 +375,31 @@ $ heroku config:set -a clippify OPEN_API_KEY=<my open ai api key>
 $ git push heroku
 ```
 
-<sub><sup>Clippy is a registered trademark of Microsoft Corporation in the United States and/or other countries. The use
-of the Clippy image is for parody purposes only and is not endorsed by Microsoft. I'm not affiliated with Microsoft (buy
-I can send a CV if asked). </sup></sub>
+The app is now on heroku. We can add the block in our checkout and test it.
+
+## Positioning the block
+
+I struggled **a lot** to make the app appear in the block list under the checkout customization. The simplified deployment
+introduced a "Development Store Preview" that needs to be **OFF** when installing the app to make it visible in the checkout block list.
+To understand that took about 20% of the time spent on this project. But now our puppy is in the right spot...
+
+![block](/tutorials/clippify/block.png#centered)
 
 ## The Result
 
+Pretty, pretty, pretty good, not bad!
+
+<center>
+<video src="/tutorials/clippify/c-twitter.mp4" controls="controls" style="max-width: 730px; text-align: center;margin: 20px 0 20px 0">
+</video>
+</center>
+
 # Conclusion
+
+It was really nice to work on Checkout UI, it's fun. The UI limitations are a real struggle and when the checkout customization
+will come to an end will be fun to see how shops will *React*.
+
+
+<sub><sup>Clippy is a registered trademark of Microsoft Corporation in the United States and/or other countries. The use
+of the Clippy image is for parody purposes only and is not endorsed by Microsoft. I'm not affiliated with Microsoft (buy
+I can send a CV if asked). </sup></sub>
