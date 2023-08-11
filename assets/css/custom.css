@@ -3,7 +3,6 @@
 }
 
 img[src*='#centered'] {
-
     display: block;
     margin: 50px auto;
 }
@@ -42,4 +41,21 @@ img[src*='#centered'] {
     60% {
         transform: scale(1, 1);
     }
+}
+
+a {
+    color: hotpink;
+}
+
+a:visited {
+    color: pink;
+}
+
+a:hover {
+    color: hotpink;
+    text-decoration: underline;
+}
+
+header h1 {
+    color: #FAB100;
 }
