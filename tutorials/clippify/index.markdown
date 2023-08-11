@@ -2,7 +2,6 @@
 layout: page
 title: "Shopify Checkout UI: Remix and ChatGPT"
 image: "/tutorials/clippify/clippy.png"
-dont_escape_title: true
 ---
 
 <div style="text-align:right;margin-bottom: 50px;">The Internet, 2023/08/06</div>

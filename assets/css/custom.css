@@ -7,3 +7,39 @@ img[src*='#centered'] {
     display: block;
     margin: 50px auto;
 }
+
+.site-title {
+    font-family: 'Courier New', monospace
+}
+
+.blinking {
+    animation: blinker 10s alternate infinite;
+}
+
+@keyframes blinker {
+    49% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    51% {
+        opacity: 1;
+    }
+}
+
+.site-title {
+    animation: myflip 4.5s alternate infinite;
+}
+
+@keyframes myflip {
+    40% {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(-1, 1);
+    }
+    60% {
+        transform: scale(1, 1);
+    }
+}
