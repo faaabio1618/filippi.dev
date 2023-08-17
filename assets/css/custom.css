@@ -28,17 +28,17 @@ img[src*='#centered'] {
 }
 
 .site-title {
-    animation: myflip 4.5s alternate infinite;
+    animation: myflip 9s alternate infinite;
 }
 
 @keyframes myflip {
-    40% {
+    45% {
         transform: scale(1, 1);
     }
     50% {
         transform: scale(-1, 1);
     }
-    60% {
+    55% {
         transform: scale(1, 1);
     }
 }
