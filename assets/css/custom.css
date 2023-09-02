@@ -27,18 +27,19 @@ img[src*='#centered'] {
     }
 }
 
-.site-title {
-    animation: myflip 9s alternate infinite;
+.my_pp {
+    animation: myflip 7s alternate infinite;
+    display: inline-block;
 }
 
 @keyframes myflip {
-    45% {
+    40% {
         transform: scale(1, 1);
     }
     50% {
         transform: scale(-1, 1);
     }
-    55% {
+    60% {
         transform: scale(1, 1);
     }
 }
@@ -54,4 +55,40 @@ a:visited {
 a:hover {
     color: hotpink;
     text-decoration: underline;
+}
+
+.my_i {
+    position: relative;
+
+}
+
+.my_i::before {
+    content: "";
+    width: 6px;
+    height: 5px;
+    position: absolute;
+    top: 3px;
+    left: calc(50% - 3px);
+}
+
+.my_i:first-of-type::before {
+    animation: shrink 2s alternate infinite;
+}
+
+.my_i:nth-of-type(2)::before {
+    animation: shrink 3s alternate infinite;
+}
+
+.my_i:nth-of-type(3)::before {
+    animation: shrink 5s alternate infinite;
+}
+
+@keyframes shrink {
+
+    0% {
+        background-color: #181818;
+    }
+    100% {
+        background-color: transparent;
+    }
 }
