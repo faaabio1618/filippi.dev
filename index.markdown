@@ -20,7 +20,8 @@ on Shopify stores and apps.
 * [101 Shopifys](/reports/101_shopifys)
 * _More Coming Soon..._
 
-## Tutorials
+## Funny stuff
 
 * [It looks like you're trying to build a Checkout UI Extension](/tutorials/clippify)
+* [I heard you like Scripts](/tutorials/ruby-in-functions)
 * _More Coming Soon..._
