@@ -1,24 +1,28 @@
 ---
 layout: page
 title: "Shopify Functions Creator"
+image: "/tutorials/ruby-in-functions/fff.png"
 ---
 
-<div style="text-align:right;margin-bottom: 50px;">The Internet, 2023/08/28</div>
+<div style="text-align:right;margin-bottom: 50px;">The Internet, 2023/08/31</div>
 
 # Introduction
 
-Putting Ruby in Shopify Functions is a questionable idea, but it's fun. We will use JavaScript `eval`
-and [Ruby2JS](https://www.ruby2js.com/)
+Do you have plenty of Shopify Scripts and want to migrate to Shopify Functions? You don't want to rewrite them in
+JavaScript? Look no further!
+
+
+We will use JavaScript `eval` and [Ruby2JS](https://www.ruby2js.com/)
 so that we can write a Ruby script to handle discounts **directly from the app!**
 
-After that, we will answer the question: Is it possible to write a Shopify Function in Ruby?
+At the end, we also answer the question: is it possible to compile Ruby to WASM to use it in a Function?
 
 # Ruby as a First-Class... Configuration
 
 > &#x24D8; **Note**
 >
-> This is just something I thought would be funny to create. It has 0 real use cases, but the real treasure is the
-~~friends~~ knowledge we made along the way.
+> This is just something I thought would be funny to create. It has 0 real use cases, it breaks all the possible 
+> programming conventions, but the real treasure is the ~~friends~~ knowledge we made along the way.
 
 ## Rationale
 
@@ -80,8 +84,7 @@ it is submitted.
 
 ![Preview](/tutorials/ruby-in-functions/preview.png#centered)
 
-We removed all the fields from the example, and thanks
-to [react-simple-code-editor](https://github.com/react-simple-code-editor/react-simple-code-editor)
+With the help of [react-simple-code-editor](https://github.com/react-simple-code-editor/react-simple-code-editor)
 and [prismjs](https://prismjs.com/), we added a simple code editor with Ruby syntax highlighting.
 
 ```jsx
@@ -206,6 +209,6 @@ inside a function, the answer is... no.
 When `ruby.wasm` compiles the Ruby code, it includes the entire Ruby interpreter.
 This results in creating a file that is on the order of megabytes.
 
-Considering that the size limit for functions is 256KB, we can't use it.
+Considering that the size limit for functions is 256KB, the answer is no.
 
 

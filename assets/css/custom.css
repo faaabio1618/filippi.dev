@@ -12,7 +12,7 @@ img[src*='#centered'] {
 }
 
 .blinking {
-    animation: blinker 10s alternate infinite;
+    animation: blinker 9s alternate infinite;
 }
 
 @keyframes blinker {
@@ -24,6 +24,9 @@ img[src*='#centered'] {
     }
     51% {
         opacity: 1;
+    }
+    100% {
+        color: #ABABAB;
     }
 }
 
@@ -71,17 +74,18 @@ a:hover {
     left: calc(50% - 3px);
 }
 
-.my_i:first-of-type::before {
+.my_i.my_i:first-of-type::before {
     animation: shrink 2s alternate infinite;
 }
 
-.my_i:nth-of-type(2)::before {
+.my_i.my_i:nth-of-type(2)::before {
     animation: shrink 3s alternate infinite;
 }
 
-.my_i:nth-of-type(3)::before {
+.my_i::before {
     animation: shrink 5s alternate infinite;
 }
+
 
 @keyframes shrink {
 
