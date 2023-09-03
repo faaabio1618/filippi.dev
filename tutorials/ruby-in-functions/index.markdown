@@ -22,7 +22,7 @@ At the end, we also answer the question: is it possible to compile Ruby to WASM 
 > &#x24D8; **Note**
 >
 > This is just something I thought would be funny to create. It has 0 real use cases, it breaks all the possible 
-> programming conventions, but the real treasure is the ~~friends~~ knowledge we made along the way.
+> programming best-practices, but the real treasure is the ~~friends~~ knowledge we made along the way.
 
 ## Rationale
 
@@ -52,7 +52,7 @@ def handler(event:, context:)
 end
 ```
 
-This is called (with a fetch call) when the function configuration is saved.
+This is fetched when the function configuration is saved.
 
 ### Testing
 
@@ -85,7 +85,7 @@ it is submitted.
 ![Preview](/tutorials/ruby-in-functions/preview.png#centered)
 
 With the help of [react-simple-code-editor](https://github.com/react-simple-code-editor/react-simple-code-editor)
-and [prismjs](https://prismjs.com/), we added a simple code editor with Ruby syntax highlighting.
+and [prismjs](https://prismjs.com/), we have added a simple code editor with Ruby syntax highlighting.
 
 ```jsx
 
@@ -198,7 +198,12 @@ code [here](https://github.com/faaabio1618/ruby-in-functions).
 
 And this is the result!
 
-![Result](/tutorials/ruby-in-functions/result.png#centered)
+![Result](/tutorials/ruby-in-functions/result.png#centered) 
+
+## Conclusion
+
+Obviously, not all the [Shopify Script API is translatable into Functions API](https://shopify.dev/docs/api/functions/reference/product-discounts) 
+but the point of this was not making something useful, but just having fun.
 
 # Can We Write a Shopify Function in Ruby?
 
@@ -209,6 +214,6 @@ inside a function, the answer is... no.
 When `ruby.wasm` compiles the Ruby code, it includes the entire Ruby interpreter.
 This results in creating a file that is on the order of megabytes.
 
-Considering that the size limit for functions is 256KB, the answer is no.
+Considering that the size limit for functions is 256KB, it is not possible to use Ruby in a function.
 
 
