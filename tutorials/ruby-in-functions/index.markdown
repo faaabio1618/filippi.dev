@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Shopify Functions Creator"
-image: "/tutorials/ruby-in-functions/fff.png"
+image: "/tutorials/ruby-in-functions/preview.png"
 ---
 
 <div style="text-align:right;margin-bottom: 50px;">The Internet, 2023/08/31</div>
