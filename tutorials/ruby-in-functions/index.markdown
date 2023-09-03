@@ -203,7 +203,7 @@ And this is the result!
 ## Conclusion
 
 Obviously, not all the [Shopify Script API is translatable into Functions API](https://shopify.dev/docs/api/functions/reference/product-discounts) 
-but the point of this was not making something useful, but just having fun.
+, but we just wanted to have fun, and we did.
 
 # Can We Write a Shopify Function in Ruby?
 
