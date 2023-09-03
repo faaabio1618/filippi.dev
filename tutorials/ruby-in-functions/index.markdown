@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Shopify Functions Creator"
+title: "Ruby in Shopify Functions"
 image: "/tutorials/ruby-in-functions/preview.png"
 ---
 
