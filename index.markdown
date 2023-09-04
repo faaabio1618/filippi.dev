@@ -23,5 +23,5 @@ on Shopify stores and apps.
 ## Code shenanigans
 
 * [It looks like you're trying to build a Checkout UI Extension](/tutorials/clippify)
-* [Is it possible to have Ruby in functions?](/tutorials/ruby-in-functions)
+* [Is it possible to have Ruby in functions?](/tutorials/ruby-in-shopify-functions)
 * _More Coming Soon..._
