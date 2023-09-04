@@ -6,7 +6,7 @@ navigable: false
 ---
 
 
-I'm Fabio. I am a software developer.
+I'm Fabio Filippi. I am a software developer.
 
 I'm currently _digital solution architect_ at [Quintessential Brands](https://quintessentialbrands.com){:target="_
 blank"}, an international spirits company.
