@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Ruby in Shopify Functions"
-image: "/tutorials/ruby-in-functions/preview.png"
+image: "/tutorials/ruby-in-shopify-functions/preview.png"
 ---
 
 <div style="text-align:right;margin-bottom: 50px;">The Internet, 2023/08/31</div>
@@ -36,7 +36,7 @@ lots of steps.
 
 What if we could create a function that allows us to write a Shopify Script and run it?
 
-![Goal Plot](/tutorials/ruby-in-functions/fff.svg#centered)
+![Goal Plot](/tutorials/ruby-in-shopify-functions/fff.svg#centered)
 
 ## Translating Ruby into JavaScript
 
@@ -82,7 +82,7 @@ $ yarn dev
 We change the configuration page to allow us to write Ruby code, and then we'll translate it to JS when
 it is submitted.
 
-![Preview](/tutorials/ruby-in-functions/preview.png#centered)
+![Preview](/tutorials/ruby-in-shopify-functions/preview.png#centered)
 
 With the help of [react-simple-code-editor](https://github.com/react-simple-code-editor/react-simple-code-editor)
 and [prismjs](https://prismjs.com/), we have added a simple code editor with Ruby syntax highlighting.
@@ -198,7 +198,7 @@ code [here](https://github.com/faaabio1618/ruby-in-functions).
 
 And this is the result!
 
-![Result](/tutorials/ruby-in-functions/result.png#centered) 
+![Result](/tutorials/ruby-in-shopify-functions/result.png#centered) 
 
 ## Conclusion
 
