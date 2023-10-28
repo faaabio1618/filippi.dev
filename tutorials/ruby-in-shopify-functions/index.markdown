@@ -88,16 +88,12 @@ With the help of [react-simple-code-editor](https://github.com/react-simple-code
 and [prismjs](https://prismjs.com/), we have added a simple code editor with Ruby syntax highlighting.
 
 ```jsx
-
 <Editor
     value={script.value}
     onValueChange={script.onChange}
     highlight={code => highlight(code, languages.ruby, 'ruby')}
     padding={10}
-    style={{
-        fontFamily: '"Fira code", "Fira Mono", monospace',
-        fontSize: 12,
-    }}
+    style={{fontFamily: '"Fira code", "Fira Mono", monospace', fontSize: 12}}
 />
 ```
 
