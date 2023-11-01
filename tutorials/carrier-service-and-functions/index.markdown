@@ -6,6 +6,31 @@ image: "/tutorials/carrier-service-and-functions/image.webp"
 
 <div style="text-align:right;margin-bottom: 50px;">The Internet, 2023/10/26</div>
 
+- [Introduction](#introduction)
+    * [The goal](#the-goal)
+- [Carrier Service API](#carrier-service-api)
+    * [The input](#the-input)
+    * [The output](#the-output)
+    * [Implementation using Cloudflare Workers](#implementation-using-cloudflare-workers)
+    * [Configuration on Cloudflare](#configuration-on-cloudflare)
+    * [Implementation](#implementation)
+    * [Deploy](#deploy)
+    * [Installation](#installation)
+        + [Get an access token](#get-an-access-token)
+        + [Adding the Carrier Service](#adding-the-carrier-service)
+        + [Adding the carrier service to a shipping profile](#adding-the-carrier-service-to-a-shipping-profile)
+    * [Testing](#testing)
+    * [FAQ on Carrier Service API](#faq-on-carrier-service-api)
+- [Shipping Function](#shipping-function)
+    * [Creating the function](#creating-the-function)
+    * [First Implementation](#first-implementation)
+        + [Input](#input)
+        + [Functions Limitations. Carrier Service for the help](#functions-limitations-carrier-service-for-the-help)
+        + [Updating the carrier service](#updating-the-carrier-service)
+        + [Installing the function](#installing-the-function)
+    * [Using Configuration](#using-configuration)
+- [Conclusion](#conclusion)
+
 # Introduction
 
 Delivery methods can greatly vary among different stores. The Shopify interface allows you to create unique shipping
@@ -258,12 +283,12 @@ type RatesConf = {
 const DEFAULT_RATES: RatesConf = { // this is not needed, Shopify will provide a default delivery price in case of error or empty response
     'rates': [{
         'min_weight_kg': 0,
-        'max_weight_kg': 0.1,
+        'max_weight_kg': 1000,
         'price': 5,
         'service': 'Carrier 1'
     }, {
-        'min_weight_kg': 0.1,
-        'max_weight_kg': 0.1,
+        'min_weight_kg': 0,
+        'max_weight_kg': 1000,
         'price': 5,
         'service': 'Carrier 2'
     }
@@ -570,9 +595,9 @@ my-delivery-customization │ Running javy...
 my-delivery-customization │ Done!
 ```
 
-### Install the function
+### Installing the function
 
-Because we have to chosen to not create an app we need to install the function manually.
+Because we have chosen to not create an app we need to install the function manually.
 We will use [Shopify GraphQL App](https://shopify-graphiql-app.shopifycloud.com/login) and run the following query
 
 ```graphql
@@ -609,8 +634,87 @@ The function is now installed and ready to be used, and after having added the t
 
 ## Using Configuration
 
-The last step will be to use configuration... https://shopify.dev/docs/apps/functions/input-output/variables-queries
+What if tomorrow the customer decides that he wants to modify the tag that grants free shipping? We need to bring that
+`VIP` tag to the configuration.
 
-## Final Test
+The last step will be to use configuration. We want to parametrize the tag, to do that
+we need to use [Variable Queries](https://shopify.dev/docs/apps/functions/input-output/variables-queries).
+
+To use variable in the query we need to create a metafield of type `JSON` that will contain all our variables.
+
+We modify `shopify.extension.toml` adding
+
+```toml
+[extension.input.variables]
+namespace = "my-delivery-function"
+key = "shipping-config"
+```
+
+(`extension.input.variables` and not just `input.variables` as in the documentation!)
+
+We need then to create the metafield, we will use a GraphQL mutation
+
+```graphql
+mutation SetMetafield {
+    metafieldsSet(metafields: [
+        {
+            namespace: "$app:my-delivery-function",
+            key: "shipping-config",
+            ownerId: "gid://shopify/DeliveryCustomization/1.....0",
+            type: "json",
+            value: "{\"freeTags\":[\"VIP\"]}"
+        }
+    ]) {
+        metafields {
+            id
+        }
+    }
+}
+```
+
+`freeTags` will be the name of the variable in our `GraphQL` query.
+
+To retrieve the `ownerId` you can use this query
+
+```graphql
+{
+    deliveryCustomizations(first:10){
+        nodes{
+            id
+        }
+    }
+}
+```
+
+We can now use the metafield in our input query
+
+```graphql
+query RunInput($freeTags: [String!]) {
+    cart{
+        buyerIdentity {
+            email
+            customer{
+                isVIP: hasAnyTag(tags: $freeTags)
+            }
+        }
+        deliveryGroups {
+            deliveryOptions {
+                title
+                handle
+            }
+        }
+    }
+}
+```
+
+We don't need any change in the function! we just need to deploy:
+
+```shell
+$ yarn deploy
+```
+
+Et voilá:
+
+![working](/tutorials/carrier-service-and-functions/working2.png#centered)
 
 # Conclusion
