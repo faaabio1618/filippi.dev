@@ -1,0 +1,98 @@
+.language-shell code .nv {
+    user-select: none;
+}
+
+img[src*='#centered'] {
+    display: block;
+    margin: 50px auto;
+}
+
+.site-title {
+    font-family: 'Courier New', monospace
+}
+
+.blinking {
+    animation: blinker 9s alternate infinite;
+}
+
+@keyframes blinker {
+    49% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    51% {
+        opacity: 1;
+    }
+    100% {
+        color: #ABABAB;
+    }
+}
+
+.my_pp, .my_d {
+    animation: myflip 7s alternate infinite;
+    display: inline-block;
+}
+
+@keyframes myflip {
+    40% {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(-1, 1);
+    }
+    60% {
+        transform: scale(1, 1);
+    }
+}
+
+a {
+    color: hotpink;
+}
+
+a:visited {
+    color: pink;
+}
+
+a:hover {
+    color: hotpink;
+    text-decoration: underline;
+}
+
+.my_i {
+    position: relative;
+
+}
+
+.my_i::before {
+    content: "";
+    width: 6px;
+    height: 5px;
+    position: absolute;
+    top: 3px;
+    left: calc(50% - 3px);
+}
+
+.my_i.my_i:first-of-type::before {
+    animation: shrink 2s alternate infinite;
+}
+
+.my_i.my_i:nth-of-type(2)::before {
+    animation: shrink 3s alternate infinite;
+}
+
+.my_i::before {
+    animation: shrink 5s alternate infinite;
+}
+
+
+@keyframes shrink {
+
+    0% {
+        background-color: #181818;
+    }
+    100% {
+        background-color: transparent;
+    }
+}

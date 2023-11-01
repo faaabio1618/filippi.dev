@@ -33,8 +33,11 @@ image: "/tutorials/carrier-service-and-functions/image.webp"
 
 # Introduction
 
-Delivery methods can greatly vary among different stores. The Shopify interface allows you to create unique shipping
+Delivery methods can greatly vary among different stores. The Shopify user interface allows you to create unique
+shipping
 profiles based on the weight and price of the cart. However, sometimes you might have too many rules to apply.
+
+![UI](/tutorials/carrier-service-and-functions/ui.png#centered)
 
 The [Carrier Service API](https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/carrierservice)
 provides an easy way to create a custom shipping method, albeit with some limitations.
@@ -65,7 +68,7 @@ all methods if the customer is tagged as 'VIP'.**
 
 # Carrier Service API
 
-It seems the Carrier Service API is not very familiar to developers, so let's begin with a quick overview.
+It seems the Carrier Service API is not very familiar to developers.
 
 Implementing a carrier service does not require creating an app; you only need to establish a public endpoint that can
 receive a POST request from Shopify and return a JSON response.
@@ -409,7 +412,7 @@ function.## Simplified Function
 
 ## Creating the function
 
-To create a function we'll use the simplified deploy that allow us to not create an app.
+To create a function, we'll utilize the simplified deploy, which can eliminate the need to establish an app.
 
 ```shell
 $ npm init @shopify/app@latest
@@ -444,7 +447,7 @@ Before proceeding, your project needs to be associated with an app.
 
 ### Input
 
-To implement a function the first this is always to define the input, we modify the `src/run.graphql`:
+To implement a function, the initial step is always defining the input, hence we modify the `src/run.graphql`:
 
 ```graphql
 query RunInput {
@@ -465,10 +468,9 @@ query RunInput {
 }
 ```
 
-So that in the request we will receive the email of the customer and `isVIP` will be true if the customer is tagged as
-`VIP`.
+In the request, we will receive the customer's email and `isVIP` will be true, if the customer is tagged as `VIP`.
 
-After changing the file we must regenerate the types in typescript
+After modifying the file, we must regenerate the types in TypeScript.
 
 ```shell
 $ cd extensions/my-delivery-customization
@@ -477,19 +479,18 @@ $ npm run shopify app function typegen
 
 ### Functions Limitations. Carrier Service for the help
 
-Can we start implementing the function? Actually no. The problem is that **functions can't change a delivery price**.
-Functions can only: **move**, **hide** or **rename** a delivery method.
+Can we proceed with implementing the function? Unfortunately, no. The issue is that **functions are not capable of
+adjusting a delivery price**. Functions can only: **move**, **hide**, or **rename** a delivery method.
 
-To solve this we need to change our the implementation of our carrier service.
-We will add a new delivery method (for each service) called `{FREE} Service X` and we will hide all the others methods
-if the customer is not tagged as `VIP` (otherwise we will hide the free method).
+To counter this, we need to modify our carrier service implementation. We will incorporate a new delivery method (for
+each service) dubbed `{FREE} Service X`, and conceal all other methods if the customer isn't designated as `VIP` (else,
+we will hide the free method).
 
 ### Updating the carrier service
 
-Let's implement the changes to the carrier service.
+Let's proceed with the modifications to the carrier service.
 
 ```typescript
-
 export default {
     async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
         const value: RatesConf = JSON.parse(await env.SHIPPING_CONFIGURATION.get('rates') || 'null') || DEFAULT_RATES;
@@ -527,8 +528,8 @@ And after deploying this is the result
 
 ### First function implementation
 
-In our attempt to implement the function we will start by hiding all the delivery methods that are not free if the user
-is VIP and viceversa.
+In our implementation process, we will hide all non-free delivery methods if the user is a VIP, and do the
+contrary for non-VIP users.
 
 ```typescript
 export function run(input: RunInput): FunctionRunResult {
@@ -571,7 +572,7 @@ export function run(input: RunInput): FunctionRunResult {
 }
 ```
 
-Before deploy we need to update `shopify.app.toml` with the right permissions
+Before deployment, we must update `shopify.app.toml` with the proper permissions.
 
 ```toml
 scopes = "write_delivery_customizations,read_delivery_customizations"
@@ -597,8 +598,8 @@ my-delivery-customization │ Done!
 
 ### Installing the function
 
-Because we have chosen to not create an app we need to install the function manually.
-We will use [Shopify GraphQL App](https://shopify-graphiql-app.shopifycloud.com/login) and run the following query
+As we have opted not to create an app, we'll have to install the function manually. We will employ
+the [Shopify GraphQL App](https://shopify-graphiql-app.shopifycloud.com/login) and execute the following query:
 
 ```graphql
 mutation deliveryCustomizationCreate($deliveryCustomization: DeliveryCustomizationInput!) {
@@ -626,7 +627,7 @@ With variables
 }
 ```
 
-The function is now installed and ready to be used, and after having added the tag `VIP` to a customer we can see that
+The function is now installed and ready for use. Once we tag a customer as `VIP`, we will see that
 
 ![Free](/tutorials/carrier-service-and-functions/free.png#centered)
 
@@ -634,15 +635,15 @@ The function is now installed and ready to be used, and after having added the t
 
 ## Using Configuration
 
-What if tomorrow the customer decides that he wants to modify the tag that grants free shipping? We need to bring that
-`VIP` tag to the configuration.
+What if the customer decides tomorrow that they want to modify the tag which grants free shipping? We need to move
+that `VIP` tag to the configuration.
 
-The last step will be to use configuration. We want to parametrize the tag, to do that
-we need to use [Variable Queries](https://shopify.dev/docs/apps/functions/input-output/variables-queries).
+The final step will involve using parametrized queries. We want to parametrize the tag, for which we need to
+utilize [Variable Queries](https://shopify.dev/docs/apps/functions/input-output/variables-queries).
 
-To use variable in the query we need to create a metafield of type `JSON` that will contain all our variables.
+To use a variable in the query, we need to create a metafield of type `JSON` that will contain all our variables.
 
-We modify `shopify.extension.toml` adding
+We modify `shopify.extension.toml` by addingg
 
 ```toml
 [extension.input.variables]
@@ -650,15 +651,13 @@ namespace = "my-delivery-function"
 key = "shipping-config"
 ```
 
-(`extension.input.variables` and not just `input.variables` as in the documentation!)
-
 We need then to create the metafield, we will use a GraphQL mutation
 
 ```graphql
 mutation SetMetafield {
     metafieldsSet(metafields: [
         {
-            namespace: "$app:my-delivery-function",
+            namespace: "my-delivery-function",
             key: "shipping-config",
             ownerId: "gid://shopify/DeliveryCustomization/1.....0",
             type: "json",
@@ -718,3 +717,11 @@ Et voilá:
 ![working](/tutorials/carrier-service-and-functions/working2.png#centered)
 
 # Conclusion
+
+What a journey it's been! Initially, I thought implementing a free shipping delivery would be easier. However, looking
+on the bright side, we've accomplished a good deal. We now have a carrier service that is easily modifiable, alongside a
+function that may be leveraged to enhance this service - all just by using configurations.
+
+If you're interested, the code can be accessed [here](https://github.com/faaabio1618/demo-delivery-method).
+
+Should you have any questions or comments, feel free to reach out to me on the links below **↓↓↓↓**
