@@ -1,8 +1,22 @@
 ---
 layout: page
-title: "Carrier Service and Functions: the best of both worlds"
+title: "Carrier Service and Functions"
+date: 2023-11-01
+tags:
+  - shopify
+  - carrier service
+  - functions
+  - shipping
+  - graphql
+  - rest
+  - cloudflare
+  - kv
+  - typescript
+  - javascript
 image: "/tutorials/carrier-service-and-functions/image.webp"
 ---
+
+#### Free shipping for tagged customers.
 
 <div style="text-align:right;margin-bottom: 50px;">The Internet, 2023/10/26</div>
 

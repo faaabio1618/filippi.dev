@@ -1,5 +1,4 @@
 ---
-
 layout: page
 title: Hey,
 navigable: false
@@ -24,5 +23,5 @@ on Shopify stores and apps.
 
 * [It looks like you're trying to build a Checkout UI Extension](/tutorials/clippify)
 * [Is it possible to use Ruby in functions?](/tutorials/ruby-in-shopify-functions)
-* [Carrier Service and Functions: the best of both worlds](/tutorials/carrier-service-and-functions) 
+* [Carrier Service and Functions: free Shipping for tagged Customers](/tutorials/carrier-service-and-functions) 
 * _More Coming Soon..._
