@@ -30,7 +30,7 @@ img[src*='#centered'] {
     }
 }
 
-.my_pp {
+.my_pp, .my_d {
     animation: myflip 7s alternate infinite;
     display: inline-block;
 }
