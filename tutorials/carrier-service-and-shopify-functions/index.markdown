@@ -13,7 +13,7 @@ tags:
   - kv
   - typescript
   - javascript
-image: "/tutorials/carrier-service-and-functions/image.png"
+image: "/tutorials/carrier-service-and-shopify-functions/image.png"
 ---
 
 #### Free shipping for tagged customers.
@@ -51,7 +51,7 @@ Delivery methods can greatly vary among different stores. The Shopify user inter
 shipping
 profiles based on the weight and price of the cart. However, sometimes you might have too many rules to apply.
 
-![UI](/tutorials/carrier-service-and-functions/ui.png#centered)
+![UI](/tutorials/carrier-service-and-shopify-functions/ui.png#centered)
 
 The [Carrier Service API](https://shopify.dev/docs/admin-api/rest/reference/shipping-and-fulfillment/carrierservice)
 provides an easy way to create a custom shipping method, albeit with some limitations.
@@ -60,7 +60,7 @@ Functions can be used to enhance the carrier service API, and we will see how.
 
 ## The goal
 
-![Goal Plot](/tutorials/carrier-service-and-functions/goal-plot.svg#centered)
+![Goal Plot](/tutorials/carrier-service-and-shopify-functions/goal-plot.svg#centered)
 
 Our customer hands us a csv like this
 
@@ -172,7 +172,7 @@ You might want to calculate the cart's price if you have a formula for determini
 
 Interestingly, the input weight is in grams while the output is in pounds, which I find quite amusing.
 
-![Canadian Meme](/tutorials/carrier-service-and-functions/meme.jpg#centered)
+![Canadian Meme](/tutorials/carrier-service-and-shopify-functions/meme.jpg#centered)
 
 ## Implementation using Cloudflare Workers
 
@@ -275,7 +275,7 @@ $ wrangler kv:key put --binding-"SHIPPING_CONFIG" "shipping_config" "$(cat confi
 If you're having difficulty with the command, you can use the [Cloudflare dashboard](https://dash.cloudflare.com/) to
 upload the correct value.
 
-![KV upload](/tutorials/carrier-service-and-functions/kv-upload.png#centered)
+![KV upload](/tutorials/carrier-service-and-shopify-functions/kv-upload.png#centered)
 
 ## Implementation
 
@@ -343,7 +343,7 @@ $ wrangler deploy
 
 Now under the Cloudflare dashboard we can test the endpoint, and we should see something like this
 
-![Worker Output](/tutorials/carrier-service-and-functions/worker-output.png#centered)
+![Worker Output](/tutorials/carrier-service-and-shopify-functions/worker-output.png#centered)
 
 ## Installation
 
@@ -358,7 +358,7 @@ _Settings_ -> _Apps and Sales Channels_ -> _Develop Apps_ -> _Create An App_. Co
 and ensure you select `write_shipping`. Save and click on _Install App_. This will provide an access token for us to
 execute the REST call.
 
-![Access Token](/tutorials/carrier-service-and-functions/access_token.png#centered)
+![Access Token](/tutorials/carrier-service-and-shopify-functions/access_token.png#centered)
 
 ### Adding the Carrier Service
 
@@ -386,14 +386,14 @@ to calculate rates_ and select your new carrier service.
 In either case, you should click on the three dots, then _Edit Rate_ to configure the carrier service. You will need to
 select all the available services your API provides, if desired.
 
-![Carrier Service Configuration 1](/tutorials/carrier-service-and-functions/carrier_1.png#centered)
-![Carrier Service Configuration 2](/tutorials/carrier-service-and-functions/carrier_2.png#centered)
+![Carrier Service Configuration 1](/tutorials/carrier-service-and-shopify-functions/carrier_1.png#centered)
+![Carrier Service Configuration 2](/tutorials/carrier-service-and-shopify-functions/carrier_2.png#centered)
 
 ## Testing
 
 We're finally done, we can check now at checkout that we have the right shipping methods.
 
-![Checkout](/tutorials/carrier-service-and-functions/checkout.png#centered)
+![Checkout](/tutorials/carrier-service-and-shopify-functions/checkout.png#centered)
 
 Success!
 
@@ -538,7 +538,7 @@ export default {
 ```
 
 And after deploying this is the result
-![Free delivery](/tutorials/carrier-service-and-functions/free-delivery.png#centered)
+![Free delivery](/tutorials/carrier-service-and-shopify-functions/free-delivery.png#centered)
 
 ### First function implementation
 
@@ -643,7 +643,7 @@ With variables
 
 The function is now installed and ready for use. Once we tag a customer as `VIP`, we will see that
 
-![Free](/tutorials/carrier-service-and-functions/free.png#centered)
+![Free](/tutorials/carrier-service-and-shopify-functions/free.png#centered)
 
 ... is working!
 
@@ -728,7 +728,7 @@ $ yarn deploy
 
 Et voilá:
 
-![working](/tutorials/carrier-service-and-functions/working2.png#centered)
+![working](/tutorials/carrier-service-and-shopify-functions/working2.png#centered)
 
 # Conclusion
 
