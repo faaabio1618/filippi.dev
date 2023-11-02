@@ -13,7 +13,7 @@ tags:
   - kv
   - typescript
   - javascript
-image: "/tutorials/carrier-service-and-functions/image.webp"
+image: "/tutorials/carrier-service-and-functions/image.png"
 ---
 
 #### Free shipping for tagged customers.
