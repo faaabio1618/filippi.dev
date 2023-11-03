@@ -168,7 +168,7 @@ From the output, it's clear that you can return multiple shipping methods, each 
 You don't need to calculate the weight of the items; simply return all the applicable shipping methods with their
 corresponding weight ranges. **Shopify will only display the methods that fall within the correct weight range**.
 
-You might want to calculate the cart's price if you have a formula for determining the shipping cost based on weight.
+You might want to calculate the cart's total if you have a formula for determining the shipping based on prices as well.
 
 Interestingly, the input weight is in grams while the output is in pounds, which I find quite amusing.
 
@@ -395,7 +395,7 @@ We're finally done, we can check now at checkout that we have the right shipping
 
 ![Checkout](/tutorials/carrier-service-and-shopify-functions/checkout.png#centered)
 
-Success!
+Success! (Prices are in £ because my testing shop is based in UK, Shopify is smart enough to convert the currency)
 
 ## FAQ on Carrier Service API
 
@@ -407,7 +407,7 @@ Success!
   A: You must select the new service (a new service code) in the shipping profile every time you add one. If it still
   doesn't appear (which can sometimes happen), try removing the carrier service and re-adding it using the REST call.
 - Q: *Why does the checkout price remain the same despite me changing it?*  
-  A: The carrier service response is cached. Try using a different address.
+  A: The carrier service response is cached (who knows for how long 😊). Try using a different address.
 - Q: *Why can't I see the carrier service in the shipping profile?*  
   A: Ensure the REST API provided a successful response and that you have an ID. You can
   use [this API](https://shopify.dev/docs/api/admin-rest/2023-10/resources/carrierservice#get-carrier-services) to check
@@ -422,7 +422,7 @@ Success!
 
 The Carrier Service API is highly useful, but it comes with limitations. For instance, we cannot determine if a customer
 is tagged as `VIP` and therefore cannot offer them free shipping. The only way to achieve this is by utilizing a
-function.## Simplified Function
+function.
 
 ## Creating the function
 
@@ -613,7 +613,7 @@ my-delivery-customization │ Done!
 ### Installing the function
 
 As we have opted not to create an app, we'll have to install the function manually. We will employ
-the [Shopify GraphQL App](https://shopify-graphiql-app.shopifycloud.com/login) and execute the following query:
+the [Shopify GraphiQL App](https://shopify-graphiql-app.shopifycloud.com/login) and execute the following query:
 
 ```graphql
 mutation deliveryCustomizationCreate($deliveryCustomization: DeliveryCustomizationInput!) {
@@ -657,7 +657,7 @@ utilize [Variable Queries](https://shopify.dev/docs/apps/functions/input-output/
 
 To use a variable in the query, we need to create a metafield of type `JSON` that will contain all our variables.
 
-We modify `shopify.extension.toml` by addingg
+We modify `shopify.extension.toml` by adding
 
 ```toml
 [extension.input.variables]
