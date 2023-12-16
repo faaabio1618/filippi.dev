@@ -10,8 +10,11 @@ I'm Fabio Filippi. I am a software developer.
 I'm currently _digital solution architect_ at [Quintessential Brands](https://quintessentialbrands.com){:target="_
 blank"}, an international spirits company.
 
-I have 10 years experience, and I've worked with many different technologies, but in the last 2 years I've been focusing
+I have <span id="years_experience"></span> years experience, and I've worked with many different technologies, but in
+the last <span id="last_years"></span> years I've been focusing
 on Shopify stores and apps.
+
+---
 
 ## Reports
 
@@ -19,9 +22,18 @@ on Shopify stores and apps.
 * [101 Shopifys](/reports/101_shopifys)
 * _More Coming Soon..._
 
+---
+
 ## Code shenanigans
 
 * [It looks like you're trying to build a Checkout UI Extension](/tutorials/clippify)
 * [Is it possible to use Ruby in functions?](/tutorials/ruby-in-shopify-functions)
-* [Carrier Service and Functions: free Shipping for tagged Customers](/tutorials/carrier-service-and-shopify-functions) 
+* [Carrier Service and Functions: free Shipping for tagged Customers](/tutorials/carrier-service-and-shopify-functions)
 * _More Coming Soon..._
+
+---
+
+🇮🇹
+
+Sperando di sembrare enigmatico ed erudito, ho deciso di digitalizzare [le poesie di Giuseppe Olivi](/giuseppe_olivi), d'altronde
+introvabili su Internet.

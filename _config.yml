@@ -34,6 +34,7 @@ minima:
   social_links:
     - { platform: email,  user_url: "mailto:fabio@filippi.dev" }
     - { platform: twitter,  user_url: "https://twitter.com/0xFAB10" }
+    - { platform: threads, user_url: "https://threads.net/0XFAB10" }
     - { platform: linkedin, user_url: "https://linkedin.com/in/0xFAB10" }
     - { platform: lichess, user_url: "https://lichess.org/@/jumblejumble" }
 
