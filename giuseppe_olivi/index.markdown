@@ -8,9 +8,9 @@ a 26 anni.
 A un anno dalla sua morte [Melchiorre Cesarotti](https://it.wikipedia.org/wiki/Melchiorre_Cesarotti) pubblicó
 l'[Elogio dell'abate Giuseppe Olivi](https://it.wikipedia.org/wiki/Elogio_dell%27abate_Giuseppe_Olivi).
 
-Nella ultima sezione dell'elogio compaiono le poesie inedite di Olivi che ispirarono Foscolo e Leopardi, tra gli altri.
+Nella ultima sezione dell'elogio compaiono le poesie inedite di Olivi che (insieme all'elogio stesso di Cesarotti) ispirarono Foscolo e Leopardi, tra gli altri.
 
-Non trovando queste poesie su Internet ho deciso di riportarle qua.
+Non avendo trovato queste poesie su Internet ho deciso di riportarle qua.
 
 <img src="/giuseppe_olivi/portrait.png" alt="Giuseppe Olivi" class="my_popo" />
 
