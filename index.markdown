@@ -33,5 +33,5 @@ on Shopify stores and apps.
 
 ---
 
-🇮🇹 Nello sforzo di sembrare enigmatico ed erudito, ho deciso di digitalizzare [le poesie di Giuseppe Olivi](/giuseppe_olivi), altrimenti
+<span style="filter:contrast(0.6)">🇮🇹</span> Nello sforzo di sembrare enigmatico ed erudito, ho deciso di digitalizzare [le poesie di Giuseppe Olivi](/giuseppe_olivi), altrimenti
 introvabili su Internet.
