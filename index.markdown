@@ -29,9 +29,11 @@ on Shopify stores and apps.
 * [It looks like you're trying to build a Checkout UI Extension](/tutorials/clippify)
 * [Is it possible to use Ruby in functions?](/tutorials/ruby-in-shopify-functions)
 * [Carrier Service and Functions: free Shipping for tagged Customers](/tutorials/carrier-service-and-shopify-functions)
+* [Polaris and Remix: how to create a complete table of elements](/tutorials/polaris-remix-index-table) [WIP]
 * _More Coming Soon..._
 
 ---
 
-<span style="filter:contrast(0.6)">🇮🇹</span> Nello sforzo di sembrare enigmatico ed erudito, ho deciso di digitalizzare [le poesie di Giuseppe Olivi](/giuseppe_olivi), altrimenti
+<span style="filter:contrast(0.6)">🇮🇹</span> Nello sforzo di sembrare enigmatico ed erudito, ho deciso di
+digitalizzare [le poesie di Giuseppe Olivi](/giuseppe_olivi), altrimenti
 introvabili su Internet.

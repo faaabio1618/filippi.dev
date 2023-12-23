@@ -81,7 +81,7 @@ E scorrer per le vene\
 Fa la gioja novella ed il desir.\
 \
 Nelle tranquille sere\
-Mentre la luna appar,
+Mentre la luna appar,\
 Ci gioverà vedere\
 Dalla sponda il ruscello scintillar.\
 \
