@@ -32,6 +32,9 @@ on Shopify stores and apps.
 * [Polaris and Remix: how to create a complete table of elements](/tutorials/polaris-remix-index-table) [WIP]
 * _More Coming Soon..._
 
+## [Quick ones](https://www.youtube.com/watch?v=RJv2-_--EY4)
+* [How to solve timeout when developing extensions](/quicks/timeout-when-developing-extensions)
+
 ---
 
 <span style="filter:contrast(0.6)">🇮🇹</span> Nello sforzo di sembrare enigmatico ed erudito, ho deciso di

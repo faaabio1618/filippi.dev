@@ -49,7 +49,7 @@ img[src*='#centered'] {
 }
 
 .my_popo {
-    animation: myImg 15s;
+    animation: myImg 26s;
     display: inline-block;
     position: fixed;
     top: 13px;
