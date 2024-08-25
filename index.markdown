@@ -24,12 +24,16 @@ on Shopify stores and apps.
 
 ---
 
-## Code shenanigans
+## Shopify shenanigans
 
 * [It looks like you're trying to build a Checkout UI Extension](/tutorials/clippify)
 * [Is it possible to use Ruby in functions?](/tutorials/ruby-in-shopify-functions)
 * [Carrier Service and Functions: free Shipping for tagged Customers](/tutorials/carrier-service-and-shopify-functions)
-* [Polaris and Remix: how to create a complete table of elements](/tutorials/polaris-remix-index-table) [WIP]
+* _More Coming Soon..._
+<!--* [Where and how to deploy my [reports](reports)Remix Shopify App](/tutorials/shopify-app-deployment)-->
+
+## Other shenanigans
+* [Vertical video from YouTube, with object tracking](/tutorials/vertical-video-from-youtube) (To be completed)
 * _More Coming Soon..._
 
 ## [Quick ones](https://www.youtube.com/watch?v=RJv2-_--EY4)

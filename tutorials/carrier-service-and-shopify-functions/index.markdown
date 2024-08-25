@@ -47,6 +47,7 @@ image: "/tutorials/carrier-service-and-shopify-functions/image.png"
 
 # Introduction
 
+**This tutorial is outdated, it is now possible to discount the shipping price using functions.**
 Delivery methods can greatly vary among different stores. The Shopify user interface allows you to create unique
 shipping
 profiles based on the weight and price of the cart. However, sometimes you might have too many rules to apply.

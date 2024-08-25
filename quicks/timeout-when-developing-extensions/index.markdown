@@ -18,7 +18,11 @@ tags:
 
 # Introduction
 
-[TODO]
+You don't need an external tunnel to test your Shopify Extension. Using a cloudflare or ngrok tunnel can be slow and sometimes
+it can cause timeouts. You can use Caddy to create a local tunnel with a custom domain and use it as your development
+server. 
+
+Time to set it up? 1 minute, plus the time you lost reading this intro.
 
 # Installation
 
