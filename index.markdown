@@ -32,9 +32,14 @@ on Shopify stores and apps.
 * _More Coming Soon..._
 <!--* [Where and how to deploy my [reports](reports)Remix Shopify App](/tutorials/shopify-app-deployment)-->
 
+---
+
 ## Other shenanigans
 * [Vertical video from YouTube, with object tracking](/tutorials/vertical-video-from-youtube) (To be completed)
 * _More Coming Soon..._
+
+
+---
 
 ## [Quick ones](https://www.youtube.com/watch?v=RJv2-_--EY4)
 * [How to solve timeout when developing extensions](/quicks/timeout-when-developing-extensions)
