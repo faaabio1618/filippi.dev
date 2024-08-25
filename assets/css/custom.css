@@ -94,8 +94,7 @@ a {
 }
 
 a:visited {
-    color: #218787;
-    filter: brightness(0.8);
+    color: #176060;
 }
 
 a:hover {

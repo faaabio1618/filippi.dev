@@ -32,7 +32,7 @@ img[src*='#centered'] {
         opacity: 1;
     }
     100% {
-        color: #ABABAB;
+        color: #876d21;
     }
 }
 
@@ -90,15 +90,15 @@ img[src*='#centered'] {
 }
 
 a {
-    color: hotpink;
+    color: #218787;
 }
 
 a:visited {
-    color: pink;
+    color: #176060;
 }
 
 a:hover {
-    color: hotpink;
+    color: #218787;
     text-decoration: underline;
 }
 
