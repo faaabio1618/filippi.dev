@@ -40,7 +40,7 @@ on Shopify stores and apps.
 ---
 
 ## Other shenanigans
-* [Vertical video from YouTube, with object tracking](/tutorials/vertical-video-from-youtube) (To be completed)
+* [Vertical video from YouTube, with object tracking](/tutorials/vertical-video-from-youtube)
 * _More Coming Soon..._
 
 

@@ -22,7 +22,7 @@ image: "/tutorials/carrier-service-and-shopify-functions/image.png"
 
 Target: cropping a horizontal video into a vertical one, following an object that moves.
 
-To follow the subject we will use a tracker, and we will keep the subject in the middle of the frame.
+To follow the object we will use a tracker, and we will keep it in the middle of the frame.
 
 To do that we used python, OpenCV2, and ffmpeg.
 
@@ -30,7 +30,7 @@ To do that we used python, OpenCV2, and ffmpeg.
 
 To start let's say we want to take this video from YouTube:
 
-[![Funny Cats Compilation](http://img.youtube.com/vi/XPQlMmMDm-A/0.jpg)](http://www.youtube.com/watch?v=XPQlMmMDm-A "Here comes the sun")
+[![Funny Parrot Video](http://img.youtube.com/vi/XPQlMmMDm-A/0.jpg)](https://www.youtube.com/watch?v=XPQlMmMDm-A "Here comes the sun")
 
 And in particular, we want to use the first 15 seconds
 
@@ -323,6 +323,122 @@ $ python3 tracker.py -f XPQlMmMDm-A-cut.mp4 -o crop.sh
 $ ffmpeg -nostats -hide_banner -loglevel error -y -ss "00:00:00" -i XPQlMmMDm-A-cut.mp4 -an -filter_script:v:0 crop.sh result.mp4
 ```
 
-## Optimization
+## The Powershell Script
 
-Todo (I'm lazy, full script will be available on GitHub)
+To make it easier to run the script we can create a powershell script that will do everything for us.
+
+```powershell
+
+# Parse argumentsS
+param (
+    [Parameter(Mandatory=$true)][string]$YouTubeLink,
+    [Parameter(Mandatory=$true)][string]$Start,
+    [Parameter(Mandatory=$true)][string]$Stop,
+    [Parameter(Mandatory=$true)][string]$Title
+)
+
+# Check for unknown options
+$args | ForEach-Object {
+    if ($_ -notmatch '^-[a-z]=')
+    {
+        Write-Error "Unknown option $_"
+        exit 1
+    }
+}
+
+# Compute derived variables
+$FileName = "$Title"
+$FileNameSafe = $FileName -replace ' ', '_'
+$Ext = "webm"
+$FilenameFromLink = $YouTubeLink.Split('=')[-1]
+$InputPath = "verticals\$FilenameFromLink\raw.$Ext"
+$CutVideo = "verticals\$FilenameFromLink\${FileNameSafe}_cut.mp4"
+$CutLabeled = "verticals\$FilenameFromLink\${FileNameSafe}_cut_labeld.mp4"
+$CutLabeledInput = "verticals\$FilenameFromLink\${FileNameSafe}_cut_labeled.txt"
+$CroppedVideo = "verticals\$FilenameFromLink\${FileNameSafe}_cropped_labeled.mp4"
+$CroppedVideoInput = "verticals\$FilenameFromLink\${FileNameSafe}_cropped.txt"
+
+
+# Download video if it doesn't exist
+if (-Not (Test-Path -Path $InputPath))
+{
+    Write-Output "Downloading video"
+    & yt-dlp.exe --quiet --progress $YouTubeLink -f "bestvideo/best" -o $InputPath --merge-output-format webm
+}
+else
+{
+    Write-Output "Video already downloaded"
+}
+
+# Cut the video if it doesn't exist
+if (-Not (Test-Path -Path $CutVideo))
+{
+    Write-Output "Cutting video"
+    & ffmpeg -hwaccel cuda -nostats -hide_banner -loglevel error -y -i $InputPath -ss $Start -t $Stop $CutVideo
+}
+else
+{
+    Write-Output "Video already cut"
+}
+
+# Create label if it doesn't exist
+if (-Not (Test-Path -Path $CutLabeledInput))
+{
+    Write-Output "Creating label"
+    & .venv/Scripts/python.exe main.py --dry-run --file $CutVideo -y "$YouTubeLink" -o "$CutLabeledInput"
+}
+else
+{
+    Write-Output "Label already created"
+}
+
+# Create labeled video if it doesn't exist
+if (-Not (Test-Path -Path $CutLabeled))
+{
+    Write-Output "Creating labeled video"
+    Start-Process ffmpeg -ArgumentList "-hwaccel","cuda", "-nostats", "-hide_banner", "-loglevel", "error", "-y", "-ss", "00:00:00", "-i", "$CutVideo", "-an", "-filter_script:v:0", "$CutLabeledInput", "$CutLabeled" -NoNewWindow -Wait
+}
+else
+{
+    Write-Output "Labeled video already created"
+}
+
+# Create tracking if it doesn't exist
+if (-Not (Test-Path -Path $CroppedVideoInput))
+{
+    Write-Output "Creating tracking"
+    & .venv/Scripts/python.exe main.py -d 10 --file $CutVideo -y $YouTubeLink -o $CroppedVideoInput
+}
+else
+{
+    Write-Output "Tracking already created"
+}
+
+# Create cropped video if it doesn't exist
+if (-Not (Test-Path -Path $CroppedVideo))
+{
+    Write-Output "Creating cropped video"
+    & ffmpeg -hwaccel cuda -nostats -hide_banner -loglevel error -y -ss "00:00:00" -i $CutVideo -an -filter_script:v:0 $CroppedVideoInput $CroppedVideo
+}
+else
+{
+    Write-Output "Cropped video already created"
+}
+```
+
+## Conclusion
+
+We have seen how to crop a video from horizontal to vertical, following an object that moves. 
+This is the final result:
+```powershell
+.\maker.ps1 -YouTubeLink "https://www.youtube.com/watch?v=XPQlMmMDm-A" -Start "00:00:00" -Stop "00:00:15" -Title "Singer Parrot"
+```
+
+<center>
+<video src
+         ="/tutorials/vertical-video-from-youtube/XPQlMmMDm-A-cropped.mp4"
+         controls="controls" style="max-width: 730px; text-align: center;margin: 20px 0 20px 0">
+</video>
+</center>
+
+The final code is available on [GitHub](https://github.com/faaabio1618/pyTracker).
