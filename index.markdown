@@ -20,6 +20,7 @@ on Shopify stores and apps.
 
 * [Liquid Tags Performances](/reports/liquid_tags_performances)
 * [101 Shopifys](/reports/101_shopifys)
+* [Shopify Apps Report (WIP)](/reports/apps)
 * _More Coming Soon..._
 
 ---
