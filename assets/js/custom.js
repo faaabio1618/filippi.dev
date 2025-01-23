@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', init, false);
+document.addEventListener('DOMContentLoaded', main_init, false);
 
 function chooseColor() {
     let colors = [
@@ -13,9 +13,11 @@ function chooseColor() {
     }
 }
 
-function init() {
-    document.getElementById("years_experience").outerText = (new Date()).getFullYear() - 2013;
-    document.getElementById("last_years").outerText = (new Date()).getFullYear() - 2021;
+function main_init() {
+     if (location.pathname === "/") {
+        document.getElementById("years_experience").outerText = (new Date()).getFullYear() - 2013;
+        document.getElementById("last_years").outerText = (new Date()).getFullYear() - 2021;
+    }
     chooseColor();
     setInterval(chooseColor, 60000);
 }
