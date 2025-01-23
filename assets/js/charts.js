@@ -737,7 +737,7 @@ async function fillData() {
 }
 
 function chart_init() {
-    if (location.pathname.includes("/apps/")) {
+    if (location.pathname.includes("reports/apps")) {
         fillData();
     }
 }
