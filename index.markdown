@@ -45,7 +45,7 @@ on Shopify stores and apps.
 ## Other shenanigans
 
 * [Vertical video from YouTube, with object tracking](/tutorials/vertical-video-from-youtube)
-* Someone asked me to make a photographer portfolio, [here's a demo](https://photodemo.filippi.dev){:target="_blank"} (Strapi, Astro, Tailwind)
+* Someone asked me to make a photographer portfolio, [here's a demo](https://photodemo.filippi.dev){:target="_blank"} (Strapi, Astro, daisyUI, Tailwind)
 * _More Coming Soon..._
 
 ---
