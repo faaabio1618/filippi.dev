@@ -31,19 +31,22 @@ on Shopify stores and apps.
 * [Is it possible to use Ruby in functions?](/tutorials/ruby-in-shopify-functions)
 * [Carrier Service and Functions: free Shipping for tagged Customers](/tutorials/carrier-service-and-shopify-functions)
 * _More Coming Soon..._
+
 <!--* [Where and how to deploy my [reports](reports)Remix Shopify App](/tutorials/shopify-app-deployment)-->
 
 ---
 
 ## [Quick ones](https://www.youtube.com/watch?v=RJv2-_--EY4)
+
 * [How to solve timeout when developing extensions](/quicks/timeout-when-developing-extensions)
 
 ---
 
 ## Other shenanigans
-* [Vertical video from YouTube, with object tracking](/tutorials/vertical-video-from-youtube)
-* _More Coming Soon..._
 
+* [Vertical video from YouTube, with object tracking](/tutorials/vertical-video-from-youtube)
+* Someone asked me to make a photographer portfolio, [here's a demo](https://photodemo.filippi.dev){:target="_blank"} (Strapi, Astro, Tailwind)
+* _More Coming Soon..._
 
 ---
 
