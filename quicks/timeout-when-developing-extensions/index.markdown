@@ -16,6 +16,11 @@ tags:
 
 <div style="text-align:right;margin-bottom: 50px;">The Internet, 2024/03/15</div>
 
+# Update
+
+[Shopify has released a new version of the CLI that allows you to use your localhost ](https://shopify.dev/changelog/developer-preview-localhost-based-development-for-shopify-app-dev) `shopify app dev --use-localhost`.
+So you don't need to use this workaround anymore. 
+
 # Introduction
 
 You don't need an external tunnel to test your Shopify Extension. Using a cloudflare or ngrok tunnel can be slow and sometimes
