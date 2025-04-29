@@ -31,12 +31,14 @@ remote_theme: jekyll/minima
 plugins: [ ]
 minima:
   skin: dark
+  hide_site_feed_link: true
   social_links:
-    - { platform: email,  user_url: "mailto:fabio@filippi.dev" }
-    - { platform: twitter,  user_url: "https://twitter.com/0xFAB10" }
-    - { platform: threads, user_url: "https://threads.net/0XFAB10" }
-    - { platform: linkedin, user_url: "https://linkedin.com/in/0xFAB10" }
-    - { platform: lichess, user_url: "https://lichess.org/@/jumblejumble" }
+    - { icon: envelope, category: fa-solid, url: "mailto:fabio@filippi.dev", title: "Send me an email" }
+    - { icon: twitter,  url: "https://twitter.com/0xFAB10", title: "I'm not using it anymore" }
+    - { icon: threads, url: "https://threads.net/0XFAB10" , title: "Well, it exists"}
+    - { icon: linkedin, url: "https://linkedin.com/in/0xFAB10", title: "I have a job, actually" }
+    - { icon: bluesky, url: "https://bsky.app/profile/0xfab10.bsky.social", title: "Interesting times" }
+    - { icon: chess-knight, category: fa-solid, url: "https://lichess.org/@/jumblejumble",  title: "I wish I was better" }
 
 # Exclude from processing.
 # The following items will not be processed, by default.
