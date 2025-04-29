@@ -26,6 +26,7 @@ To follow the object we will use a tracker, and we will keep it in the middle of
 
 To do that we used python, OpenCV2, and ffmpeg.
 
+(The code on GitHub is updated, with scene detection and smoother motion [link](https://github.com/faaabio1618/pyTracker))
 ## Download and prepare a video (optional)
 
 To start let's say we want to take this video from YouTube:
