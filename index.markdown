@@ -5,14 +5,13 @@ navigable: false
 ---
 
 
-I'm Fabio Filippi. I am a software developer.
+I'm Fabio Filippi,
 
 I'm currently _digital solution architect_ at [Quintessential Brands](https://quintessentialbrands.com){:target="_
 blank"}, an international spirits company.
 
-I have <span id="years_experience"></span> years experience, and I've worked with many different technologies, but in
-the last <span id="last_years"></span> years I've been focusing
-on Shopify stores and apps.
+I have <span id="years_experience">12</span> years of experience as developer, and I've worked with many different technologies, but in
+the last <span id="last_years">4</span> years I've been focusing on e-commerces, especially in the Shopify ecosystem. 
 
 ---
 

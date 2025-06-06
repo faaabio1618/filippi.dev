@@ -13,10 +13,24 @@ function chooseColor() {
     }
 }
 
+function spinNumber(elementId, finalNumber, duration = 2000, interval = 100, min = 0, max = 100) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+    let spinner = setInterval(() => {
+        el.innerText = (Math.floor(Math.random() * (max - min + 1)) + min) + "";
+    }, interval);
+    setTimeout(() => {
+        clearInterval(spinner);
+        el.innerText = finalNumber;
+    }, duration);
+}
+
 function main_init() {
-     if (location.pathname === "/") {
-        document.getElementById("years_experience").outerText = (new Date()).getFullYear() - 2013;
-        document.getElementById("last_years").outerText = (new Date()).getFullYear() - 2021;
+    if (location.pathname === "/") {
+        const yearsOfExperience = new Date().getFullYear() - 2013;
+        spinNumber("years_experience", yearsOfExperience, 2000, 100, 10,100);
+        const lastYears = new Date().getFullYear() - 2021;
+        spinNumber("last_years", lastYears, 2000, 100, 0, 10);
     }
     chooseColor();
     setInterval(chooseColor, 60000);
