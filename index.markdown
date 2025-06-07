@@ -1,6 +1,8 @@
 ---
 layout: page
-title: Fabio Filippi - Digital Solution Architect
+title: Hey,
+head_title: Fabio Filippi - Digital Solution Architect
+meta_description: Digital spaceo of Fabio Filippi, digital solution architect at Quintessential Brands, with a focus on Shopify and e-commerce solutions.
 date: 2025-07-06
 tags:
   - shopify
