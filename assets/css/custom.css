@@ -1,4 +1,5 @@
 :root {
+    --var-color-bg: #252525;
     --var-color1: #218787;
     --var-color2: #876d21;
     --var-color3: #872154;
@@ -133,7 +134,7 @@ a:hover {
 @keyframes shrink {
 
     0% {
-        background-color: #181818;
+        background-color: var(--var-color-bg);
     }
     100% {
         background-color: transparent;
@@ -207,4 +208,8 @@ a:hover {
 }
 .social-media-list li:nth-child(even) .svg-icon.grey{
     color: var(--var-color2)
+}
+
+body, .site-header{
+    background-color: var(--var-color-bg);
 }
