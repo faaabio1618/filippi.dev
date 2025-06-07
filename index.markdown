@@ -1,6 +1,23 @@
 ---
 layout: page
-title: Hey,
+title: Fabio Filippi - Digital Solution Architect
+date: 2025-07-06
+tags:
+  - shopify
+  - digital solution architect
+  - developer
+  - e-commerce
+  - liquid
+  - javascript
+  - typescript
+  - cloudflare
+  - caddy
+  - mkcert
+  - ruby
+  - strapi
+  - astro
+  - daisyui
+  - tailwindcss
 navigable: false
 ---
 
