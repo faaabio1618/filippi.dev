@@ -15,8 +15,6 @@ function chooseColor() {
 
 function spinNumber(elementId, finalNumber, duration, min, max) {
     const el = document.getElementById(elementId);
-    const elSuffix = document.getElementById("year_suffix");
-
     const interval = duration / 100;
     if (!el) return;
     let currentInterval = interval;
@@ -41,13 +39,6 @@ function spinNumber(elementId, finalNumber, duration, min, max) {
             spinner = setTimeout(spin, currentInterval);
         }
         el.innerText = number + "";
-        if (elementId === "last_years") {
-            if (number === 1) {
-                elSuffix.style.visibility = 'hidden';
-            } else {
-                elSuffix.style.visibility = 'visible';
-            }
-        }
     }, currentInterval);
     setTimeout(() => {
         forceValue = true;
@@ -60,7 +51,7 @@ function main_init() {
         const yearsOfExperience = new Date().getFullYear() - 2013;
         spinNumber("years_experience", yearsOfExperience, 3000, 10, 99);
         const lastYears = new Date().getFullYear() - 2021;
-        spinNumber("last_years", lastYears, 3000, 1, 9);
+        spinNumber("last_years", lastYears, 3000, 2, 9);
     }
     chooseColor();
     setInterval(chooseColor, 60000);

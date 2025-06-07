@@ -30,7 +30,7 @@ I'm currently a _digital solution architect_ at [Quintessential Brands](https://
 blank"}, an international spirits company.
 
 I have <span id="years_experience">12</span> years of experience as a developer, and have worked with many different technologies, but in
-the last <span id="last_years">4</span> year<span id="year_suffix">s</span> I've been focusing on e-commerce, especially within the Shopify ecosystem. 
+the last <span id="last_years">4</span> years I've been focusing on e-commerce, especially within the Shopify ecosystem. 
 
 ---
 
