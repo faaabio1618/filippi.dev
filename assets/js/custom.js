@@ -13,24 +13,54 @@ function chooseColor() {
     }
 }
 
-function spinNumber(elementId, finalNumber, duration = 2000, interval = 100, min = 0, max = 100) {
+function spinNumber(elementId, finalNumber, duration, min, max) {
     const el = document.getElementById(elementId);
+    const elSuffix = document.getElementById("year_suffix");
+
+    const interval = duration / 100;
     if (!el) return;
-    let spinner = setInterval(() => {
-        el.innerText = (Math.floor(Math.random() * (max - min + 1)) + min) + "";
-    }, interval);
+    let currentInterval = interval;
+    let forceValue = false;
+
+    function getNumber() {
+        let number = Math.floor(Math.random() * (max - min + 1)) + min;
+        if (number === finalNumber) {
+            return getNumber();
+        }
+        return number;
+    }
+
+    let spinner = setTimeout(function spin() {
+        let number;
+        if (forceValue) {
+            number = finalNumber;
+            clearTimeout(spinner);
+        } else {
+            number = getNumber();
+            currentInterval = currentInterval + currentInterval / 10;
+            spinner = setTimeout(spin, currentInterval);
+        }
+        el.innerText = number + "";
+        if (elementId === "last_years") {
+            if (number === 1) {
+                elSuffix.style.visibility = 'hidden';
+            } else {
+                elSuffix.style.visibility = 'visible';
+            }
+        }
+    }, currentInterval);
     setTimeout(() => {
-        clearInterval(spinner);
-        el.innerText = finalNumber;
+        forceValue = true;
     }, duration);
+
 }
 
 function main_init() {
     if (location.pathname === "/") {
         const yearsOfExperience = new Date().getFullYear() - 2013;
-        spinNumber("years_experience", yearsOfExperience, 2000, 100, 10,100);
+        spinNumber("years_experience", yearsOfExperience, 3000, 10, 99);
         const lastYears = new Date().getFullYear() - 2021;
-        spinNumber("last_years", lastYears, 2000, 100, 0, 10);
+        spinNumber("last_years", lastYears, 3000, 1, 9);
     }
     chooseColor();
     setInterval(chooseColor, 60000);
