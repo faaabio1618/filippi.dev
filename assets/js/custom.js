@@ -50,7 +50,7 @@ function main_init() {
     if (location.pathname === "/") {
         const yearsOfExperience = new Date().getFullYear() - 2013;
         spinNumber("years_experience", yearsOfExperience, 3000, 10, 99);
-        const lastYears = new Date().getFullYear() - 2021;
+        const lastYears = new Date().getFullYear() - 2020;
         spinNumber("last_years", lastYears, 3000, 2, 9);
     }
     chooseColor();
